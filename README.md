@@ -19,14 +19,54 @@
 ## Install
 
 ```sh
-npm install
+npm install mz-timeline
 ```
 
-## Run tests
+## Usage
 
 ```sh
-npm run test
+const times = [
+    "2018-12-19",
+    "2019-02-19",
+    "2019-10-01",
+    "2020-10-01",
+    "2020-10-10",
+    "2020-11-10",
+    "2021-08-08",
+    "2021-10-16",
+    "2021-12-08",
+    "2021-12-16",
+    "2022-01-11",
+    "2022-09-09",
+    "2022-09-11",
+    "2022-11-09",
+  ];
+  
+const App = () => {
+    return (
+        <>
+            <TimeLineF data = {times}/>
+        </>
+    );
+}
+
+OptionalProps/InitSizeDefault
+
+initTLSize = {
+    width: 800,  //containersize
+    height: 120,  //containersize
+    arrowsWidth: 10, //sliderwidth
+    pointWidth: 2, //timepintwidth
+    top: "2%", //position
+    left: "5%", //position 
+}
+
 ```
+
+## UI
+
+![image](/imgs/mz-timeline.jpg)
+
 
 ## Author
 
@@ -46,6 +86,3 @@ Give a ⭐️ if this project helped you!
 
 Copyright © 2023 [waiwaiTaDady](https://github.com/waiwaiTaDady).<br />
 This project is [MIT](https://github.com/waiwaiTaDady/MZ-TimeLine/blob/master/LICENSE) licensed.
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_

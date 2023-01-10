@@ -23,13 +23,17 @@ interface initParamsType {
   left: string;
 }
 
-/**
- * TimeLine-Fake 等分时间节点
- */
-export default function TimeLineF(props: {
+interface PropsType {
   data: string[];
   initTLSize?: initParamsType;
-}) {
+}
+
+/**
+ * TimeLine-Fake 等分时间节点
+ * @param props
+ * @returns TimeLineF
+ */
+export default function TimeLineF(props: PropsType) {
   const {
     data,
     initTLSize = {
@@ -53,7 +57,7 @@ export default function TimeLineF(props: {
   const [lastPosition, setLastPosition] = useState(-1);
   const [changeType, setChangeType] = useState(false); //false 拖动  true 按钮
   const [timeData, setTimeData] = useState<TimeDataType[]>([]);
-  const [curTime, setCurTime] = useState<string>()
+  const [curTime, setCurTime] = useState<string>();
 
   useEffect(() => {
     let width = (size[0] / 1920) * initTLSize.width;
@@ -74,7 +78,6 @@ export default function TimeLineF(props: {
       });
 
       // console.log(pointPositions,timedata);
-
       setTimeData(timedata);
       setpositionArr(pointPositions);
     }
@@ -232,9 +235,11 @@ export default function TimeLineF(props: {
             zIndex: "100",
             background: "#dad",
             border: "unset",
-            cursor:"pointer"
+            cursor: "pointer",
           }}
-        >Pre</div>
+        >
+          Pre
+        </div>
         <div
           className="arrows"
           ref={arrowref}
@@ -320,9 +325,11 @@ export default function TimeLineF(props: {
             zIndex: "100",
             background: "#dad",
             border: "unset",
-            cursor:"pointer"
+            cursor: "pointer",
           }}
-        >After</div>
+        >
+          After
+        </div>
       </div>
     </div>
   );
