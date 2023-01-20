@@ -1,4 +1,4 @@
-.timelinef {
+.timelineu {
   // height: 50px;
   // width: 800px;
   // background: #00000030;
@@ -8,13 +8,13 @@
   justify-content: center;
   align-items: center;
   z-index: 99;
-  .timelinep-line {
+  .timelineu-line {
     z-index: 2;
     position: absolute;
     // height: 30%;
     // width: 100%;
     background: #C4DFFFFF; //#FDE6E FFF2E2
-    .timelinep-line-fill{
+    .timelineu-line-fill{
       position: absolute;
       top:0;
       left:0;
@@ -50,16 +50,22 @@
           }
         }
       }
+      >span{
+        position: absolute;
+        top: 100%;
+        // font-size: 18px;
+        font-weight: bold;
+      }
     }
   }
   .arrows {
     position: absolute;
-    z-index: 3;
+    z-index: 9999;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    border:2px solid #0979FFFF;
+    // border:2px solid #0979FFFF;
     cursor: pointer;
   }
 }

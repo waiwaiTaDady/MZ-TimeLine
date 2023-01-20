@@ -44,7 +44,7 @@ const prodConfig = {
                     },
                     { loader: 'less-loader' }
                 ]
-            }
+            },
         ]
     },
     plugins: [

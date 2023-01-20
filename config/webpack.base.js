@@ -14,6 +14,18 @@ module.exports = {
                     }
                 ],
                 exclude: /node_modules/, // 只解析 src 目录下的文件
+            },
+            {
+                test: /\.(png|jpg|gif|svg)$/,
+                use:[{
+                    loader: 'url-loader',
+                    // options: {
+                    //     name: 'images/[name].[ext]',
+                    //     esModule: false,
+                    // },
+                    
+                }],
+                // type: 'javascript/auto'
             }
         ]
     },

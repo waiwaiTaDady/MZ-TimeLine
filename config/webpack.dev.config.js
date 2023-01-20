@@ -48,7 +48,7 @@ const devConfig = {
                     { loader: 'style-loader' },
                     { loader: 'css-loader' },
                 ]
-            }
+            },
         ]
     },
     devServer: {
