@@ -129,6 +129,7 @@ export default function TimeLineU(props: {
   setCurTime?: Function;
 }) {
   // const { data, curTime, setCurTime } = props;
+  const {data} = props;
   const { width, height } = initTLSize;
   const arrowref = useRef<HTMLDivElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
