@@ -48,6 +48,21 @@ interface TimesData {
   location: number;
   time: string;
 }
+/**
+ * 时间轴props
+ */
+interface TimeLineUPropsType {
+  /**
+   * 时间数据
+   */
+  data: string[];
+  /**
+   * 获取当前选择时间
+   */
+  onChange?: Function;
+    // curTime?: string;
+  // setCurTime?: Function;
+}
 
 const initTLSize = {
   width: 1200,
@@ -121,20 +136,18 @@ function timeYearSlice(
 }
 
 /**
- * TimeLine-U 复杂时间轴 这个组件太乱了别看了
+ * 复杂时间轴 这个组件太乱了别看了
+ * @param props
+ * @returns 
  */
-export default function TimeLineU(props: {
-  data:string[];
-  curTime?: string;
-  setCurTime?: Function;
-}) {
+export default function TimeLineU(props:TimeLineUPropsType) {
   // const { data, curTime, setCurTime } = props;
-  const {data} = props;
+  const { data, onChange } = props;
   const { width, height } = initTLSize;
   const arrowref = useRef<HTMLDivElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
   const size = useWindowSize();
-  const [curTime, setCurTime] = useState<string>()
+  const [curTime, setCurTime] = useState<string>();
   const [lineSize, setLineSize] = useState({ width, height });
   const [elementSize, seteElementSize] = useState<number[]>([1, 1]);
   const [x, setX] = useState(0);
@@ -225,6 +238,7 @@ export default function TimeLineU(props: {
     // curpoint && message.info("当前节点" + curpoint.time);
     // curpoint && setCurTime && setCurTime(curpoint.time);
     curpoint && setCurTime && setCurTime(curpoint.time);
+    curpoint && onChange && onChange(curpoint.time);
   };
 
   const selectArrow = (e) => {
@@ -233,7 +247,7 @@ export default function TimeLineU(props: {
     setMove(true);
   };
 
-  /**
+  /**x
    * 就近捕捉时间节点
    * @param curx mousemove当前位置
    * @param pointArr 时间节点百分比数组
@@ -375,9 +389,7 @@ export default function TimeLineU(props: {
         <Button
           type="text"
           icon={
-            <Icon
-              component={calendarsvg("blue", `${elementSize[1] * 25}`)}
-            />
+            <Icon component={calendarsvg("blue", `${elementSize[1] * 25}`)} />
           }
           onClick={showModal}
         />
@@ -456,9 +468,7 @@ export default function TimeLineU(props: {
           <div
             className="timelineu-line-fill"
             style={{
-              width: `${
-                timeData.find((item, index) => index === lastPosition)?.location
-              }%`,
+              width: `${x * elementSize[0]}px`,
               transition: "all .4s",
             }}
           ></div>
@@ -505,6 +515,7 @@ export default function TimeLineU(props: {
                           width: `${elementSize[1] * 100}px`,
                           fontSize: `${elementSize[1] * 16}px`,
                           // border: "2px solid #0979FFFF ",
+                          cursor: "pointer",
                           background: "#ffffff8f",
                           fontWeight: "bold",
                           lineHeight: "24px",
@@ -646,11 +657,11 @@ export default function TimeLineU(props: {
             width: "80%",
             right: "20px",
           }}
-          message={<span style={{fontWeight:"bold"}}>FAQ</span>}
+          message={<span style={{ fontWeight: "bold" }}>FAQ</span>}
           description={
             <div
               style={{
-                padding:"0 6%",
+                padding: "0 6%",
                 height: "100%",
                 display: "flex",
                 flexDirection: "column",
@@ -660,7 +671,7 @@ export default function TimeLineU(props: {
             >
               <div
                 style={{
-                  height:"30px",
+                  height: "30px",
                   width: "100%",
                   display: "flex",
                   justifyContent: "space-between",
@@ -668,16 +679,13 @@ export default function TimeLineU(props: {
                 }}
               >
                 <Icon
-                  component={calendarsvg(
-                    "#daa",
-                    `${elementSize[1] * 25}`
-                  )}
+                  component={calendarsvg("#daa", `${elementSize[1] * 25}`)}
                 />
                 <span>时间轴使日期范围选择</span>
               </div>
               <div
                 style={{
-                  height:"30px",
+                  height: "30px",
                   width: "100%",
                   display: "flex",
                   justifyContent: "space-between",
@@ -691,7 +699,7 @@ export default function TimeLineU(props: {
               </div>
               <div
                 style={{
-                  height:"30px",
+                  height: "30px",
                   width: "100%",
                   display: "flex",
                   justifyContent: "space-between",

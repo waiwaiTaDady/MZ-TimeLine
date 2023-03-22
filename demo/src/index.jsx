@@ -1,6 +1,6 @@
 import React from "react"
 import { createRoot } from 'react-dom/client';
-import TimeLineF from '../../src/index';
+import TimeLineU from '../../src/index'
 // import TimeLineF from 'mz-timeline';
 // import WidthAutoLabel from 'text-width-auto-label';
 import './idnex.less'
@@ -24,12 +24,15 @@ const times = [
   
 
 const App = () => {
+    const handleChange =(time)=>{
+        console.log(time);
+    }
     return (
         <div className="container">
             <div className="text">
                 <p>Demo</p><p>TimeLine</p>
             </div>
-            <TimeLineF data = {times}/>
+            <TimeLineU data = {times} onChange={handleChange}/>
         </div>
     );
 }
