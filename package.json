@@ -1,8 +1,8 @@
 {
   "name": "mz-timeline",
-  "version": "0.2.1",
-  "description": "",
-  "main": "/src/index.tsx",
+  "version": "0.2.8",
+  "description": "丝滑时间轴",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --config config/webpack.dev.config.js",
@@ -44,6 +44,7 @@
     "react-dom": "^18.2.0",
     "style-loader": "^3.3.1",
     "ts-loader": "^9.4.2",
+    "typescript": "^5.0.4",
     "url-loader": "^4.1.1",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1",

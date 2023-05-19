@@ -6,6 +6,11 @@
   align-items: center;
   z-index: 99;
 }
+.timelineu img {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
 .timelineu .timelineu-line {
   z-index: 2;
   position: absolute;

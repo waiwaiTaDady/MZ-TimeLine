@@ -41,6 +41,9 @@ const times = [
     "2022-09-11",
     "2022-11-09",
   ];
+
+import TimeLineU from "mz-timeline";
+import 'mz-timeline/lib/index.min.css'
   
 const App = () => {
     return (

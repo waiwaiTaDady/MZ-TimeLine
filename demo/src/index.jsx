@@ -1,6 +1,6 @@
 import React from "react"
 import { createRoot } from 'react-dom/client';
-import TimeLineU from '../../src/index'
+import TimeLineU from 'mz-timeline';
 // import TimeLineF from 'mz-timeline';
 // import WidthAutoLabel from 'text-width-auto-label';
 import './idnex.less'
