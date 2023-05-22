@@ -241,7 +241,7 @@ export default function TimeLineU(props:TimeLineUPropsType) {
     curpoint && onChange && onChange(curpoint.time);
   };
 
-  const selectArrow = (e) => {
+  const selectArrow = (e:any) => {
     setChangeType(false);
     setLastX(e.clientX);
     setMove(true);
@@ -283,7 +283,7 @@ export default function TimeLineU(props:TimeLineUPropsType) {
     return { current, catched };
   };
 
-  const mousemove = (e) => {
+  const mousemove = (e:any) => {
     e.stopPropagation();
     e.preventDefault();
     if (lineRef && lineRef.current) {
@@ -302,7 +302,7 @@ export default function TimeLineU(props:TimeLineUPropsType) {
       }
     }
   };
-  const mouseup = (e) => {
+  const mouseup = (e:any) => {
     setMove(false);
   };
 

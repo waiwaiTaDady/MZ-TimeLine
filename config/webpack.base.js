@@ -7,10 +7,20 @@ module.exports = {
     rules: [
       {
         // 编译处理 js 和 jsx 文件
-        test: /(\.js(x?))|(\.ts(x?))$/,
+        test: /(\.js(x?))$/,
         use: [
           {
             loader: "babel-loader",
+          },
+        ],
+        exclude: /node_modules/, // 只解析 src 目录下的文件
+      },
+      {
+        // 编译处理 js 和 jsx 文件
+        test: /(\.ts(x?))$/,
+        use: [
+          {
+            loader: "ts-loader",
           },
         ],
         exclude: /node_modules/, // 只解析 src 目录下的文件
