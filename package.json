@@ -1,6 +1,6 @@
 {
   "name": "mz-timeline",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "丝滑时间轴",
   "main": "lib/index.js",
    "types": "mztl.d.ts",
